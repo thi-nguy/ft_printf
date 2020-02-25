@@ -46,7 +46,7 @@ int ft_printf(const char *fmt, ...);
 void parse(const char *fmt, t_data *t);
 void init_flag(t_data *t);
 void parse_flag(const char *fmt, t_data *t);
-void parse_width(t_data *t);
+void parse_width(const char *fmt, t_data *t);
 void parse_prec(const char *fmt, t_data *t);
 void parse_type(const char *fmt, t_data *t);
 

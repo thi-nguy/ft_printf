@@ -6,7 +6,7 @@
 /*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 19:17:21 by lgaultie          #+#    #+#             */
-/*   Updated: 2020/02/22 17:46:50 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/02/24 11:28:58 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1704,7 +1704,7 @@ ft_printf("--------------------%%c--------------------\n");		//Perfect
 
 void s(void)
 {
-ft_printf("--------------------%%s--------------------\n");	//Perfect
+	ft_printf("--------------------%%s--------------------\n");	//Perfect
 	printf("01) Vrai PRINTF : |%.2s|\n", "salut");
 	ft_printf("01) Mon PRINTF  : |%.2s|\n", "salut");
 	printf("02) Vrai PRINTF : |%-s|\n", "test");
@@ -1769,10 +1769,18 @@ ft_printf("--------------------%%s--------------------\n");	//Perfect
 	ft_printf("30) Mon PRINTF  : |%1.0s|\n", NULL);
 	printf("31) Vrai PRINTF : |%-1.s|\n", NULL);
 	ft_printf("31) Mon PRINTF  : |%-1.s|\n", NULL);	
+
+	printf("\n32) Vrai PRINTF : |%.*s|\n", 3, "Hello");
+	ft_printf("32) Mon PRINTF  : |%.*s|\n", 3, "Hello");	
+
+	printf("\n33) Vrai PRINTF : |%.*10s|\n", 3, "Hello");
+	ft_printf("33) Mon PRINTF  : |%.*10s|\n", 3, "Hello");
+
+	printf("\n34) Vrai PRINTF : |%*10s|\n", 3, "Hello");
+	ft_printf("34) Mon PRINTF : |%*10s|\n", 3, "Hello");
 }
 int		main(void)
 {
-	c();
 	
 	s();
 	// s/width/prec

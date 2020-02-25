@@ -6,7 +6,7 @@
 /*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 16:48:26 by weilin            #+#    #+#             */
-/*   Updated: 2020/02/22 17:46:45 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/02/24 14:17:48 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	type_chars(char type, t_data *t)
 	unsigned char	ch;
 	char			*str;
 
-	t->flag.minus == 1 ? t->flag.zero = 0 : 0; // - overide 0
+	t->flag.minus == 1 ? t->flag.zero = 0 : 0; // 
 	if (type == 'c')
 	{
 		ch = (unsigned char)va_arg(t->valist, int);
@@ -141,16 +141,13 @@ void parse_type(const char *fmt, t_data *t)
 
 void	init_flag(t_data *t)
 {
-	t->flag.plus = 0;
 	t->flag.minus = 0;
 	t->flag.zero = 0;
-	t->flag.space = 0;
-	t->flag.hash = 0;
 	t->flag.width = 0;
 	t->flag.prec = -1;
 }
 
-void parse_prec(const char *fmt, t_data *t)
+void parse_prec(const char *fmt, t_data *t) // 
 {
 	if (t->flag.prec >= 0)
 	{
@@ -159,9 +156,8 @@ void parse_prec(const char *fmt, t_data *t)
 	} //if already exist then do not take more prec
 	else if (fmt[t->i] == '.' && fmt[t->i + 1] == '*')
 	{
-		// t->flag.prec = va_arg(t->valist, int);
-		t->flag.prec = 0;
-		t->i += 2;
+		t->flag.prec = va_arg(t->valist, int);
+		return ;
 	}
 	if (fmt[t->i] == '.' && ft_isdigit(fmt[t->i + 1]))
 	{
@@ -174,21 +170,39 @@ void parse_prec(const char *fmt, t_data *t)
 		t->flag.prec = 0;
 }
 
+void parse_width(const char *fmt, t_data *t)
+{
+	int len;
+
+	len = ft_strlen(fmt + t->i);
+	if (t->flag.width > 0)
+	{
+		t->i++;
+		return ;
+	} //if already exist then do not take more width
+	while (fmt[t->i] != '\0')
+	{
+		if (ft_isdigit(fmt[t->i]))
+			return;
+		t->i++;
+	} //if already exist width as a number, then do not take more width
+	if (t->i < len - 1)
+		t->flag.width = va_arg(t->valist, int);
+}
+
 void parse_flag(const char *fmt, t_data *t)
 {
-	while (ft_strchr("'+-0# *.123456789", fmt[t->i])) //hlLjz
+	while (ft_strchr("'-0*.123456789", fmt[t->i]))
 	{
-		fmt[t->i] == '+' ? t->flag.plus = 1 : 0;
 		fmt[t->i] == '-' ? t->flag.minus = 1 : 0;
 		fmt[t->i] == '0' ? t->flag.zero = 1 : 0;
-		fmt[t->i] == '#' ? t->flag.hash = 1 : 0;
-		fmt[t->i] == ' ' ? t->flag.space = 1 : 0;
-		//fmt[t->i] == '*' ? parse_width(t) : 0;
-		//LL size
+		
 		if (fmt[t->i] == '.')
 			parse_prec(fmt, t);
+		if (fmt[t->i] == '*')
+			parse_width(fmt, t);
 		else if (ft_isdigit(fmt[t->i]))
-		{
+		{	
 			t->flag.width = ft_atoi(fmt + t->i);
 			while (ft_isdigit(fmt[t->i]))
 				t->i++;
@@ -214,7 +228,7 @@ int ft_printf(const char *fmt, ...)
 
 	ft_bzero(&t, sizeof(t)); // initiate a truct t with various information put as 0 at the begining
 	va_start(t.valist, fmt); // start the list of variables
-	if ((t.fd = 1) && fmt) // ?? isn't fd is 0 after the initialize part? What is this condition for?
+	if ((t.fd = 1) && fmt) // t.fd is assigned to 1, not comparation
 	{
 		t.len = (int)ft_strlen(fmt); // get the lenght of fmt
 		while (t.i < t.len) // move i until the end of fmt
