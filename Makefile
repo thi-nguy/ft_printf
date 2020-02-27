@@ -3,62 +3,36 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: weilin <weilin@student.42.fr>              +#+  +:+       +#+         #
+#    By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/01/11 16:48:33 by weilin            #+#    #+#              #
-#    Updated: 2020/02/19 22:56:54 by weilin           ###   ########.fr        #
+#    Created: 2020/02/25 16:18:50 by thi-nguy          #+#    #+#              #
+#    Updated: 2020/02/27 11:51:09 by thi-nguy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-LIB_FOLDER = libft/
-LIB_FILES = ft_atoi ft_strlen ft_bzero ft_isdigit ft_strchr ft_int_len \
-			ft_strdup ft_strsub ft_strtolower ft_strjoin ft_strnew ft_strcat \
-			ft_strcpy
+SRC = ft_atoi.c ft_bzero.c ft_isdigit.c ft_strchr.c ft_strdup.c ft_strlen.c\
+		 ft_substr.c ft_itoa.c\
+		 process_char_flag-0.c  process_str_flag-0.c process_int_flag-0.c\
+		 process_precision.c\
+		 ft_printf.c\
 
-FILES = ft_printf
+OBJ = $(SRC:.c=.o)
 
-FILES+= $(addprefix $(LIB_FOLDER),$(LIB_FILES))
-
-CC = gcc
-FLAG = -Wall -Wextra -Werror -g -I $(INC_DIR)
-
-RM = rm -rf
-
-CCH_DIR = cache/
-SRC_DIR = src/
-INC_DIR = include/
-
-SRC = $(addprefix $(SRC_DIR),$(addsuffix .c,$(FILES)))
-OBJ = $(addprefix $(CCH_DIR),$(addsuffix .o,$(FILES)))
+HEADER = ft_printf.h
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $@ $^
-# Running "ar s" on an archive is equivalent to running ranlib on it.
-
-$(CCH_DIR)%.o: $(SRC_DIR)%.c | $(CCH_DIR)
-	$(CC) $(FLAG) -c $< -o $@
-
-$(CCH_DIR):
-	mkdir $@
-	mkdir $(CCH_DIR)$(LIB_FOLDER)
+$(NAME):
+	gcc -c $(SRC) -I $(HEADER)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 clean:
-	$(RM) $(CCH_DIR)
-	$(RM) *.out*
+	rm -f $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
-re: fclean
-	$(MAKE) all
-
-norm:
-	@echo $(RED)
-	@echo $(END)
-	# norminette $(SRC) $(INC_DIR) | grep -v Norme -B1 || true
-
-.PHONY: all clean fclean re norm
+re : fclean all

@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "/Users/thi-nguy/Desktop/ft_printf"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"ft_printf.h": "c"
+		}
+	}
+}
