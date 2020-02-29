@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:56:01 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/02/25 18:14:05 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/02/29 18:46:03 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_flag
 	int zero;
 	int width;
 	int prec;
+	int neg;
 } t_flag;
 
 typedef struct s_data
@@ -47,7 +48,10 @@ void	print_str(t_data *t);
 
 void	get_int(t_data *t);
 void	print_nbr(t_data *t);
-
+void	check_sign_nbr(t_data *t);
+void	print_neg_sign(t_data *t);
+void	print_zero_width(t_data *t);
+void	print_precision(t_data *t);
 
 void	init_flag(t_data *t);
 void	parse_flag(const char *fmt, t_data *t);
@@ -69,6 +73,8 @@ char	*ft_strdup(const char *src);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char		*ft_itoa(int n);
 int		get_size(int n);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strnew(size_t size);
 
 #endif
 

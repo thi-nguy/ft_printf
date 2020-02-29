@@ -6,7 +6,7 @@
 /*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 19:17:21 by lgaultie          #+#    #+#             */
-/*   Updated: 2020/02/27 12:55:29 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/02/29 18:58:08 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1779,9 +1779,47 @@ void s(void)
 void num(void)
 {
 	ft_printf("--------------------%%s--------------------\n");
-	printf("01) Vrai PRINTF : |%i|\n", 42);
-	ft_printf("01) Mon PRINTF  : |%i|\n", 42);
+	printf("01) Vrai PRINTF: |%i|\n", 42);
+	ft_printf("01) Mon PRINTF : |%i|\n", 42);
+	printf("02) Vrai PRINTF: |%i|\n", -42);
+	ft_printf("02) Mon PRINTF : |%i|\n", -42);
+	printf("03) Vrai PRINTF: |%-i|\n", -42);
+	ft_printf("03) Mon PRINTF : |%-i|\n", -42);
+	printf("04) Vrai PRINTF : |%-10i|\n", -42);
+	ft_printf("04) Mon PRINTF :  |%-10i|\n", -42);
+	printf("05) Vrai PRINTF : |%10i|\n", -42);
+	ft_printf("05) Mon PRINTF :  |%10i|\n", -42);
+	printf("06) Vrai PRINTF : |%010i|\n", -42);
+	printf("06) Mon PRINTF  : |%010i|\n", -42);
+	/* neu co precision thi se in number va so 0 cho du precision, */
+	/* neu co them width thi se ko in gi cho du width */
+	printf("10) Vrai PRINTF : |%010.3i|\n", 42);
+	ft_printf("10) Mon PRINTF:   |%010.3i|\n", 42);
+	printf("10a) Vrai PRINTF:|%10.3i|\n", 42);
+	ft_printf("10a) Mon PRINTF: |%10.3i|\n", 42);
+
+	printf("\n10b) Vrai PRINTF:|%10.3i|\n", -42);
+	ft_printf("10b) Mon PRINTF: |%10.3i|\n", -42);
+	printf("10c) Vrai PRINTF:|%-10.3i|\n", -42);
+	ft_printf("10c) Mon PRINTF: |%-10.3i|\n", -42);
+
+	printf("\n07) Vrai PRINTF : |%.10i|\n", -42);
+	ft_printf("07) Mon PRINTF :  |%.10i|\n", -42);
+
+	/* printf("\n04) Vrai PRINTF : |%-10i|\n", 42); // 0 is ignored when - exists */
+	/* printf("05) Vrai PRINTF : |%-10i|\n", -42); */
+	
+	/* printf("06) Vrai PRINTF : |%.10i|\n", -42); */
+	/* printf("07) Vrai PRINTF : |%010i|\n", -42); */
+	/* printf("08) Vrai PRINTF : |%10i|\n", -42); */
+
+	/* printf("09) Vrai PRINTF : |%-10i\n", -42); */
+
+	/* printf("10a) Vrai PRINTF : |%10.3i|\n", 42); */
+
+	/* printf("11) Vrai PRINTF : |%0*.1i|\n", 10, 42); */
 }
+
 int		main(void)
 {
 	
