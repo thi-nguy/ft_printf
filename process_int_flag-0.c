@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/29 12:41:20 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/02/29 18:58:12 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/03/03 12:30:03 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 void    get_int(t_data *t)
 {
-   int nbr;
-   char *nbr_str;
+	int nbr;
+	char *nbr_str;
 
-   t->flag.minus == 1 ? t->flag.zero = 0 : 0;
-   if ((nbr = (int)va_arg(t->valist, int)))
-   {
-        nbr_str = ft_itoa(nbr);
-            t->bf = ft_strdup(nbr_str);
-        if (t->bf)
-            print_nbr(t);
-    }
+	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
+	if ((nbr = (int)va_arg(t->valist, int)))
+	{
+		nbr_str = ft_itoa(nbr);
+		t->bf = ft_strdup(nbr_str);
+		if (t->bf)
+			print_nbr(t);
+	}
 }
 
 void	print_neg_sign(t_data *t)
@@ -43,7 +43,7 @@ void	print_zero_width(t_data *t)
 		len = (int)ft_strlen(t->bf) + 1;
 	else
 		len = (int)ft_strlen(t->bf);
-	space = t->flag.width - (t->flag.prec > (int)ft_strlen(t->bf) ? t->flag.prec : len);
+	space = t->flag.width - ((t->flag.prec > (int)ft_strlen(t->bf) ? t->flag.prec : 0) + len);
 	while (space > 0)
 	{
 		if (t->flag.zero == 1)
@@ -86,12 +86,12 @@ void	print_precision(t_data *t)
 void    print_nbr(t_data *t)
 {
 	print_precision(t);
-    if (t->flag.minus == 1)
-    {
+	if (t->flag.minus == 1)
+	{
 		print_neg_sign(t);
 		t->nb_print += write(t->fd, t->bf, ft_strlen(t->bf));
 		print_zero_width(t);
-    }
+	}
 	else if (t->flag.zero == 1)
 	{
 		print_neg_sign(t);
@@ -104,21 +104,20 @@ void    print_nbr(t_data *t)
 		print_neg_sign(t);
 		t->nb_print += write(t->fd, t->bf, ft_strlen(t->bf));
 	}
-    t->i++;
-    free(t->bf);
+	t->i++;
+	free(t->bf);
 }
 
 void    check_sign_nbr(t_data *t) // if bf is -345, copy bf from after the sign - (bf tro thanh 345)
 {
-    char *tmp;
+	char *tmp;
 
-    if(t->bf[0] == '-')
-    {
-        tmp = ft_strdup(t->bf + 1);
-        free(t->bf);
-        t->bf = tmp;
-        t->flag.neg = 1;
-    }
-    t->flag.neg = 0;
+	if(t->bf[0] == '-')
+	{
+		tmp = ft_strdup(t->bf + 1);
+		free(t->bf);
+		t->bf = tmp;
+		t->flag.neg = 1;
+	}
 }
 

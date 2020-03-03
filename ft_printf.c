@@ -6,7 +6,7 @@
 /*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 16:48:26 by weilin            #+#    #+#             */
-/*   Updated: 2020/02/25 15:53:40 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/03/03 13:45:32 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void parse_type(const char *fmt, t_data *t)
         get_char(fmt[t->i], t);
     else if (fmt[t->i] == 'd' || fmt[t->i] == 'i')
         get_int(t);
+    else if (fmt[t->i] == 'x' || fmt[t->i] == 'X')
+	    get_hex(fmt[t->i], t);
     else if (fmt[t->i] == '%')
         get_percent(t);
     else if (fmt[t->i] != '\0')

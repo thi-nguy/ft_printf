@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:56:01 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/02/29 18:46:03 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/03/03 14:50:50 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void	check_sign_nbr(t_data *t);
 void	print_neg_sign(t_data *t);
 void	print_zero_width(t_data *t);
 void	print_precision(t_data *t);
+
+// Process Hexadecimal
+void	get_hex(char type, t_data *t);
+char	*itox(int nbr);
+char	*itoX(int nbr);
 
 void	init_flag(t_data *t);
 void	parse_flag(const char *fmt, t_data *t);

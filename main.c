@@ -6,7 +6,7 @@
 /*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 19:17:21 by lgaultie          #+#    #+#             */
-/*   Updated: 2020/02/29 18:58:08 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/03/03 12:44:17 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1797,27 +1797,31 @@ void num(void)
 	ft_printf("10) Mon PRINTF:   |%010.3i|\n", 42);
 	printf("10a) Vrai PRINTF:|%10.3i|\n", 42);
 	ft_printf("10a) Mon PRINTF: |%10.3i|\n", 42);
-
-	printf("\n10b) Vrai PRINTF:|%10.3i|\n", -42);
+	printf("10b) Vrai PRINTF:|%10.3i|\n", -42);
 	ft_printf("10b) Mon PRINTF: |%10.3i|\n", -42);
 	printf("10c) Vrai PRINTF:|%-10.3i|\n", -42);
 	ft_printf("10c) Mon PRINTF: |%-10.3i|\n", -42);
+	printf("11) Vrai PRINTF : |%.10i|\n", -42);
+	ft_printf("11) Mon PRINTF :  |%.10i|\n", -42);
+	printf("12) Vrai PRINTF : |%-10i|\n", 42); // 0 is ignored when - exists
+	ft_printf("12) Mon PRINTF :  |%-10i|\n", 42); // 0 is ignored when - exists
+	printf("12a) Vrai PRINTF : |%-10i|\n", -42);
+	ft_printf("12a) Mon PRINTF :  |%-10i|\n", -42); // 0 is ignored when - exists
+	printf("13) Vrai PRINTF : |%.10i|\n", -42);
+	ft_printf("13) Mon PRINTF :  |%.10i|\n", -42);
 
-	printf("\n07) Vrai PRINTF : |%.10i|\n", -42);
-	ft_printf("07) Mon PRINTF :  |%.10i|\n", -42);
+	printf("\n14) Vrai PRINTF : |%010i|\n", -42);
+	ft_printf("14) Mon PRINTF :  |%010i|\n", -42);
+	/* printf("14a) Vrai PRINTF : |%-010i|\n", -42); */
+	/* ft_printf("14a) Mon PRINTF :  |%-010i|\n", -42); */
+	printf("15) Vrai PRINTF : |%10i|\n", -42); 
+	ft_printf("15) Mon PRINTF : |%10i|\n", -42);
+	printf("16) Vrai PRINTF : |%-10i|\n", -42); 
+	ft_printf("16) Mon PRINTF :  |%-10i|\n", -42); 
 
-	/* printf("\n04) Vrai PRINTF : |%-10i|\n", 42); // 0 is ignored when - exists */
-	/* printf("05) Vrai PRINTF : |%-10i|\n", -42); */
-	
-	/* printf("06) Vrai PRINTF : |%.10i|\n", -42); */
-	/* printf("07) Vrai PRINTF : |%010i|\n", -42); */
-	/* printf("08) Vrai PRINTF : |%10i|\n", -42); */
 
-	/* printf("09) Vrai PRINTF : |%-10i\n", -42); */
-
-	/* printf("10a) Vrai PRINTF : |%10.3i|\n", 42); */
-
-	/* printf("11) Vrai PRINTF : |%0*.1i|\n", 10, 42); */
+	printf("17) Vrai PRINTF : |%-*.1i|\n", 10, -42);
+	ft_printf("17) Mon PRINTF :  |%-*.1i|\n", 10, -42);
 }
 
 int		main(void)
