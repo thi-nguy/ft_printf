@@ -12,16 +12,6 @@
 
 #include "ft_printf.h"
 
-void parse_width(const char *fmt, t_data *t)
-{
-	t->flag.width = va_arg(t->valist, int);
-	if (t->flag.width < 0) // When arg = -x, it is considered that there is a - in the precision
-	{
-		t->flag.width = -(t->flag.width); 
-		t->flag.minus = 1;
-	}
-}
-
 void parse_prec(const char *fmt, t_data *t) //process ".*", ".number", or no precision
 {
 	if (t->flag.prec >= 0)
@@ -44,25 +34,3 @@ void parse_prec(const char *fmt, t_data *t) //process ".*", ".number", or no pre
 	else
 		t->flag.prec = 0;
 }
-
-void	get_percent(t_data *t)
-{
-	int tmp;
-
-	tmp = t->flag.width;
-	if (t->flag.minus == 1)
-	{
-		t->nb_print += write(t->fd, "%", 1);
-		while (tmp-- > 1)
-			t->nb_print += write(t->fd, " ", 1);
-	}
-	else
-	{
-		while (tmp-- > 1)
-			t->nb_print += (t->flag.zero ?
-					write(t->fd, "0", 1) : write(t->fd, " ", 1));
-		t->nb_print += write(t->fd, "%", 1);
-	}
-	t->i++;
-}
-

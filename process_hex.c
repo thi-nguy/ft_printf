@@ -12,6 +12,7 @@
 
 #include "ft_printf.h"
 
+/*
 void	get_hex(char type, t_data *t)
 {
 	int	nbr;
@@ -22,14 +23,16 @@ void	get_hex(char type, t_data *t)
 		return ;
 	if (type == 'x')
 		nbr_str = itox(nbr);
-	else if (tpe == 'X')
+	else if (type == 'X')
 		nbr_str = itoX(nbr);
-	t->bf = strdup(nbr_str);
+	t->bf = ft_strdup(nbr_str);
 	if (t->bf)
 		print_nbr(t);
 }
 
+/*
 char	*itox(int nbr)
 {
 
 }
+*/

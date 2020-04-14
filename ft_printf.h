@@ -13,19 +13,19 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include <stdio.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <stdio.h>
 
 typedef struct s_flag
 {
-	int minus;
-	int zero;
-	int width;
-	int prec;
-	int neg;
+	int minus; // - can le
+	int zero; // 0 precision 0
+	int width; // * minimum width, so ky tu moi lan in
+	int prec; // . in bao nhieu ky tu, precision
+	int neg; // dau negative, dung cho cac so am, negative.
 } t_flag;
 
 typedef struct s_data
@@ -38,14 +38,16 @@ typedef struct s_data
 	int nb_print; // number of byte is printed
 	int len; // length of fmt 
 } t_data;
-
+// Process Char
 void	fillwidth_char(t_data *t);
 void	print_char(t_data *t, unsigned char ch);
 void	get_char(char type, t_data *t);
 
+// Process String
 void	fillwidth_str(t_data *t);
 void	print_str(t_data *t);
 
+// Process int
 void	get_int(t_data *t);
 void	print_nbr(t_data *t);
 void	check_sign_nbr(t_data *t);
@@ -54,19 +56,21 @@ void	print_zero_width(t_data *t);
 void	print_precision(t_data *t);
 
 // Process Hexadecimal
-void	get_hex(char type, t_data *t);
-char	*itox(int nbr);
-char	*itoX(int nbr);
+//void	get_hex(char type, t_data *t);
+//char	*itox(int nbr);
+//char	*itoX(int nbr);
 
+// Process flag and type
 void	init_flag(t_data *t);
 void	parse_flag(const char *fmt, t_data *t);
 void	parse_type(const char *fmt, t_data *t);
 void	parse(const char *fmt, t_data *t);
 int		ft_printf(const char *fmt, ...);
 
-void	get_percent(t_data *t);
+//void	get_percent(t_data *t);
 void	parse_prec(const char *fmt, t_data *t);
 void	parse_width(const char *fmt, t_data *t);
+void	print_back(const char *fmt, t_data *t);
 
 // libft
 void	ft_bzero(void *str, size_t n);

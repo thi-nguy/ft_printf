@@ -14,9 +14,8 @@ NAME = libftprintf.a
 
 SRC = ft_atoi.c ft_bzero.c ft_isdigit.c ft_strchr.c ft_strdup.c ft_strlen.c\
 		 ft_substr.c ft_itoa.c ft_strnew.c ft_strjoin.c\
-		 process_char_flag-0.c  process_str_flag-0.c process_int_flag-0.c\
-		 process_precision.c process_hex_flag-0.c\
-		 ft_printf.c\
+		 process_char.c  process_str.c process_int.c process_hex.c\
+		 parse_prec.c ft_printf.c\
 
 OBJ = $(SRC:.c=.o)
 
@@ -25,7 +24,7 @@ HEADER = ft_printf.h
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(SRC) -I $(HEADER)
+	gcc -c -g $(SRC) ft_printf.h
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 

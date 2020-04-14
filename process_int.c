@@ -12,28 +12,6 @@
 
 #include "ft_printf.h"
 
-void    get_int(t_data *t)
-{
-	int nbr;
-	char *nbr_str;
-
-	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
-	if ((nbr = (int)va_arg(t->valist, int)))
-	{
-		nbr_str = ft_itoa(nbr);
-		t->bf = ft_strdup(nbr_str);
-		if (t->bf)
-			print_nbr(t);
-	}
-}
-
-void	print_neg_sign(t_data *t)
-{
-	if (t->flag.neg == 1)
-		t->nb_print += write(t->fd, "-", 1);
-}
-
-
 void	print_zero_width(t_data *t)
 {
 	int len;
@@ -51,6 +29,26 @@ void	print_zero_width(t_data *t)
 		else
 			t->nb_print += write(t->fd, " ", 1);
 		space--;
+	}
+}
+
+void	print_neg_sign(t_data *t)
+{
+	if (t->flag.neg == 1)
+		t->nb_print += write(t->fd, "-", 1);
+}
+
+
+void    check_sign_nbr(t_data *t) // if bf is -345, copy bf from after the sign - (bf tro thanh 345)
+{
+	char *tmp;
+
+	if(t->bf[0] == '-')
+	{
+		tmp = ft_strdup(t->bf + 1);
+		free(t->bf);
+		t->bf = tmp;
+		t->flag.neg = 1;
 	}
 }
 
@@ -108,16 +106,17 @@ void    print_nbr(t_data *t)
 	free(t->bf);
 }
 
-void    check_sign_nbr(t_data *t) // if bf is -345, copy bf from after the sign - (bf tro thanh 345)
+void    get_int(t_data *t)
 {
-	char *tmp;
+	int nbr;
+	char *nbr_str;
 
-	if(t->bf[0] == '-')
+	t->flag.minus == 1 ? t->flag.zero = 0 : 0; //Neu co can le trai roi thi khong co flag 0 nua
+	if ((nbr = (int)va_arg(t->valist, int)))
 	{
-		tmp = ft_strdup(t->bf + 1);
-		free(t->bf);
-		t->bf = tmp;
-		t->flag.neg = 1;
+		nbr_str = ft_itoa(nbr);
+		t->bf = ft_strdup(nbr_str);
+		if (t->bf)
+			print_nbr(t);
 	}
 }
-

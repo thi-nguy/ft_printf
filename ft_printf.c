@@ -20,9 +20,19 @@ void	init_flag(t_data *t)
 	t->flag.prec = -1;
 }
 
+void parse_width(const char *fmt, t_data *t)
+{
+	t->flag.width = va_arg(t->valist, int);
+	if (t->flag.width < 0) // When arg = -x, it is considered that there is a - in the precision
+	{
+		t->flag.width = -(t->flag.width); 
+		t->flag.minus = 1;
+	}
+}
+
 void parse_flag(const char *fmt, t_data *t)
 {
-	while (ft_strchr("'-0*.123456789", fmt[t->i]))
+	while (ft_strchr("-0*.123456789", fmt[t->i]))
 	{
 		fmt[t->i] == '-' ? t->flag.minus = 1 : 0;
 		fmt[t->i] == '0' ? t->flag.zero = 1 : 0;
@@ -40,6 +50,17 @@ void parse_flag(const char *fmt, t_data *t)
 	}
 }
 
+void	print_back(const char *fmt, t_data *t) 
+{
+	int c = t->i; 
+	while (fmt[t->i] != '%')
+	{
+		t->i--;
+	}
+	while (t->i <= c)
+		t->nb_print += write(t->fd, fmt + (t->i)++, 1);
+}
+
 void parse_type(const char *fmt, t_data *t)
 {
     
@@ -47,12 +68,16 @@ void parse_type(const char *fmt, t_data *t)
         get_char(fmt[t->i], t);
     else if (fmt[t->i] == 'd' || fmt[t->i] == 'i')
         get_int(t);
-    else if (fmt[t->i] == 'x' || fmt[t->i] == 'X')
-	    get_hex(fmt[t->i], t);
-    else if (fmt[t->i] == '%')
-        get_percent(t);
+    //else if (fmt[t->i] == 'x' || fmt[t->i] == 'X')
+	//    get_hex(fmt[t->i], t);
+    //else if (fmt[t->i] == '%')
+    //	get_percent(t);
     else if (fmt[t->i] != '\0')
-        print_char(t, fmt[t->i]);
+		print_back(fmt, t);
+        return ;
+		//print_char(t, fmt[t->i]);
+		// trong printf luon phai co type nao do, neu khong co type se bao loi
+		// Nhung no van in ra tu dau dau %.
 }
 
 void parse(const char *fmt, t_data *t)
@@ -70,15 +95,18 @@ int ft_printf(const char *fmt, ...)
 {
 	t_data t;
 
-	ft_bzero(&t, sizeof(t)); // initiate a truct t with various information put as 0 at the begining
+	ft_bzero(&t, sizeof(t)); // initiate a struct t with various information put as 0 at the begining
 	va_start(t.valist, fmt); // start the list of variables
 	if ((t.fd = 1) && fmt) // t.fd is assigned to 1, not comparation
 	{
 		t.len = (int)ft_strlen(fmt); // get the lenght of fmt
 		while (t.i < t.len) // move i until the end of fmt
 		{
-			if (fmt[t.i] == '%' && t.len == 1) // if there is only %, we stop the program
+			if (fmt[t.i] == '%' && t.len == 1) // if there is only %, we stop the program? We need to print %??? da fix, them dong write
+			{
+				t.nb_print += write(t.fd, "%", 1);
 				break;
+			}
 			else if (fmt[t.i] == '%' && fmt[t.i + 1] == '%') // if there is %%, we print %% and continue
 			{
 				t.nb_print += write(t.fd, "%", 1);
