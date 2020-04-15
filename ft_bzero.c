@@ -19,7 +19,7 @@ void	ft_bzero(void *str, size_t n)
 	p = str;
 	while (n > 0)
 	{
-		*p = 0;
+		*p = 0; // gan khoang trong (Nul)?
 		p++;
 		n--;
 	}

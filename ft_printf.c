@@ -74,8 +74,7 @@ void parse_type(const char *fmt, t_data *t)
     //	get_percent(t);
     else if (fmt[t->i] != '\0')
 		print_back(fmt, t);
-        return ;
-		//print_char(t, fmt[t->i]);
+        //print_char(t, fmt[t->i]);
 		// trong printf luon phai co type nao do, neu khong co type se bao loi
 		// Nhung no van in ra tu dau dau %.
 }
@@ -114,7 +113,7 @@ int ft_printf(const char *fmt, ...)
 			}
 			else if (fmt[t.i] == '%' && fmt[t.i + 1] != '%') // if there is a % and  after % is somthing else, we use -/-parse-/-
 				parse(fmt, &t);
-			else // if there is no %, we print everything we encounter.
+			else // if there is no %, we print everything we encounter till the end.
 				t.nb_print += write(t.fd, fmt + (t.i)++, 1);
 		}
 	}

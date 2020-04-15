@@ -185,6 +185,7 @@ void s(void)
 
 void num(void)
 {
+	/*
 	ft_printf("--------------------%%s--------------------\n");
 	printf("01) Vrai PRINTF: |%i|\n", 42);
 	ft_printf("01) Mon PRINTF : |%i|\n", 42);
@@ -200,6 +201,7 @@ void num(void)
 	printf("06) Mon PRINTF  : |%010i|\n", -42);
 	/* neu co precision thi se in number va so 0 cho du precision, */
 	/* neu co them width thi se ko in gi cho du width */
+	/*
 	printf("10) Vrai PRINTF : |%010.3i|\n", 42);
 	ft_printf("10) Mon PRINTF:   |%010.3i|\n", 42);
 	printf("10a) Vrai PRINTF:|%10.3i|\n", 42);
@@ -229,6 +231,17 @@ void num(void)
 
 	printf("17) Vrai PRINTF : |%-*.1i|\n", 10, -42);
 	ft_printf("17) Mon PRINTF :  |%-*.1i|\n", 10, -42);
+	*/
+	//printf("18) Vrai PRINTF : |%-015.*i|\n", 10, -123);
+	//ft_printf("18) Mon PRINTF :  |%-015.*i|\n", 10, -123);
+	
+	// thu truong hop precision nho hon do dai cua so
+	printf("19) Vrai PRINTF : |%015.*i|\n", 3, 1234567);
+	ft_printf("19) Mon PRINTF :  |%015.*i|\n", 3, 1234567);
+	printf("20) Vrai PRINTF : |%0*i|\n", 15, -1234567);
+	ft_printf("20) Mon PRINTF :  |%0*i|\n", 15, -1234567);
+	printf("21) Vrai PRINTF : |%-0*i|\n", 15, -1234567);
+	ft_printf("21) Mon PRINTF :  |%-0*i|\n", 15, -1234567);
 
 
 }

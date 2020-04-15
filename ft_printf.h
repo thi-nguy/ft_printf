@@ -52,8 +52,8 @@ void	get_int(t_data *t);
 void	print_nbr(t_data *t);
 void	check_sign_nbr(t_data *t);
 void	print_neg_sign(t_data *t);
-void	print_zero_width(t_data *t);
-void	print_precision(t_data *t);
+void	print_rest_0_or_space(t_data *t);
+void	get_prec(t_data *t);
 
 // Process Hexadecimal
 //void	get_hex(char type, t_data *t);
