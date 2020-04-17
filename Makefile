@@ -13,8 +13,9 @@
 NAME = libftprintf.a
 
 SRC = ft_atoi.c ft_bzero.c ft_isdigit.c ft_strchr.c ft_strdup.c ft_strlen.c\
-		 ft_substr.c ft_itoa.c ft_strnew.c ft_strjoin.c\
+		 ft_substr.c ft_itoa.c ft_strnew.c ft_strjoin.c ft_itox.c\
 		 process_char.c  process_str.c process_int.c process_hex.c\
+		 process_u.c process_p.c\
 		 parse_prec.c ft_printf.c\
 
 OBJ = $(SRC:.c=.o)

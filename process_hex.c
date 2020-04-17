@@ -12,27 +12,17 @@
 
 #include "ft_printf.h"
 
-/*
 void	get_hex(char type, t_data *t)
 {
-	int	nbr;
+	long int	nbr;
 	char	*nbr_str;
 
 	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
-	if (!(nbr = (int)va_arg(t->valist, int)))
-		return ;
-	if (type == 'x')
-		nbr_str = itox(nbr);
-	else if (type == 'X')
-		nbr_str = itoX(nbr);
-	t->bf = ft_strdup(nbr_str);
-	if (t->bf)
-		print_nbr(t);
+	if ((nbr = (long int)va_arg(t->valist, long int)))
+	{
+		nbr_str = ft_itox(nbr, type);
+		t->bf = ft_strdup(nbr_str);
+		if (t->bf)
+			print_nbr(t);
+	}
 }
-
-/*
-char	*itox(int nbr)
-{
-
-}
-*/

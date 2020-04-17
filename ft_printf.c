@@ -68,8 +68,12 @@ void parse_type(const char *fmt, t_data *t)
         get_char(fmt[t->i], t);
     else if (fmt[t->i] == 'd' || fmt[t->i] == 'i')
         get_int(t);
-    //else if (fmt[t->i] == 'x' || fmt[t->i] == 'X')
-	//    get_hex(fmt[t->i], t);
+    else if (fmt[t->i] == 'x' || fmt[t->i] == 'X')
+	    get_hex(fmt[t->i], t);
+	else if (fmt[t->i] == 'u')
+	    get_u(t);
+	else if (fmt[t->i] == 'p')
+	    get_p(t);
     //else if (fmt[t->i] == '%')
     //	get_percent(t);
     else if (fmt[t->i] != '\0')
@@ -111,7 +115,7 @@ int ft_printf(const char *fmt, ...)
 				t.nb_print += write(t.fd, "%", 1);
 				t.i += 2;
 			}
-			else if (fmt[t.i] == '%' && fmt[t.i + 1] != '%') // if there is a % and  after % is somthing else, we use -/-parse-/-
+ 			else if (fmt[t.i] == '%' && fmt[t.i + 1] != '%') // if there is a % and  after % is somthing else, we use -/-parse-/-
 				parse(fmt, &t);
 			else // if there is no %, we print everything we encounter till the end.
 				t.nb_print += write(t.fd, fmt + (t.i)++, 1);

@@ -56,9 +56,19 @@ void	print_rest_0_or_space(t_data *t);
 void	get_prec(t_data *t);
 
 // Process Hexadecimal
-//void	get_hex(char type, t_data *t);
-//char	*itox(int nbr);
-//char	*itoX(int nbr);
+void	get_hex(char type, t_data *t);
+char	*ft_itox(long int n, char type);
+int	get_size_hex(long int n);
+
+// Process Unsigned int
+void	get_u(t_data *t);
+char		*ft_longi_toa(long int n);
+int	get_size_longi(long int n);
+
+// Process Pointer/Address
+void	get_p(t_data *t);
+
+
 
 // Process flag and type
 void	init_flag(t_data *t);

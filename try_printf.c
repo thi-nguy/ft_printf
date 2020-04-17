@@ -2,8 +2,9 @@
 
 int main(void)
 {
+	/*
 	printf("\nCONVERSION\n");
-	printf("i - interger: %i\n", 1);
+	printf("i - interge 1);
 	printf("d - decimal/double?: %d\n", 10);
 	printf("u - unsigned decimal/double?: %u\n", -10);
 	printf("c - character: %c\n", 'a');
@@ -63,6 +64,29 @@ int main(void)
 
 	printf("%-010w\n");
 	printf("%-----c\n", '!');
+	*/
+
+	//Try hex number
+	int n = 4;
+	int *p1 = &n;
+	/*
+	printf("print unsigned int hex: |%x|\n", -123, -123);
+	printf("print unsigned int hex: |%x|\n", 123, 123);
+	printf("print unsigned int hex: |%-010x|\n", 123, 123);
+	printf("print unsigned int hex: |%010x|\n", -123, -123);
+	*/
+	//Try p
+	/*
+	printf("Try type p: |%p|\n", p1);
+	printf("Try type p: |%p|\n", &n);
+	printf("Try type p: |%p|\n", &p1);
+	printf("Try type p: |%p|\n", 4);
+	*/
+	// Try u
+	printf("print unsigned int u: |%u|\n", 123456);
+	printf("print unsigned int u: |%u|\n", -123456);
+	printf("print unsigned int u: |%-010u|\n", -123456);
+	printf("print unsigned int u: |%010u|\n", -123456);
 
 	return (0);
 }

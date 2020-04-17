@@ -120,7 +120,7 @@ void    get_int(t_data *t)
 	if ((nbr = (int)va_arg(t->valist, int)))
 	{
 		nbr_str = ft_itoa(nbr);
-		t->bf = ft_strdup(nbr_str);
+		t->bf = ft_strdup(nbr_str); // need to free nbr_str? if not: memory leek?
 		if (t->bf)
 			print_nbr(t);
 	}
