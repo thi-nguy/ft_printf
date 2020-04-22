@@ -66,7 +66,9 @@ char		*ft_longi_toa(long int n);
 int	get_size_longi(long int n);
 
 // Process Pointer/Address
-void	get_p(t_data *t);
+void	print_rest_0_or_space_addr(t_data *t);
+void		print_addr(t_data *t);
+void		get_p(t_data *t);
 
 
 

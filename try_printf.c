@@ -76,17 +76,19 @@ int main(void)
 	printf("print unsigned int hex: |%010x|\n", -123, -123);
 	*/
 	//Try p
-	/*
+	
 	printf("Try type p: |%p|\n", p1);
 	printf("Try type p: |%p|\n", &n);
 	printf("Try type p: |%p|\n", &p1);
 	printf("Try type p: |%p|\n", 4);
-	*/
+	
 	// Try u
+	/*
 	printf("print unsigned int u: |%u|\n", 123456);
 	printf("print unsigned int u: |%u|\n", -123456);
 	printf("print unsigned int u: |%-010u|\n", -123456);
 	printf("print unsigned int u: |%010u|\n", -123456);
+	*/
 
 	return (0);
 }
