@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:56:01 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/03/03 14:50:50 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/07 11:05:11 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_data
 	t_flag flag; // struct of all kind of flag
 	char *bf; // buffer
 	int i; // index to know where are we in the fmt
-	int fd; // why do we need it?
+	int fd; // why do we need it? File descriptors 0, 1, and 2 are standard input, standard output, and standard error for each running process
 	int nb_print; // number of byte is printed
 	int len; // length of fmt 
 } t_data;

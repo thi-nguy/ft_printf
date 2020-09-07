@@ -52,7 +52,7 @@ void	get_p(t_data *t)
     unsigned long int val;
 	
 	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
-	if ((val = va_arg(t->valist, unsigned long int)))
+	if ((val = va_arg(t->valist, unsigned long int))) //thieu truong hop neu var trong valist == NULL
     {
         if (t->flag.prec == 0)
             t->bf = ft_strdup("\0");
@@ -64,4 +64,9 @@ void	get_p(t_data *t)
             return;
         print_addr(t);
     }
+	else //truong hop valist == NULL
+	{
+		t->bf = ft_strdup("0");
+		print_addr(t);
+	}
 }

@@ -14,14 +14,14 @@
 
 void parse_prec(const char *fmt, t_data *t) //process ".*", ".number", or no precision
 {
-	if (t->flag.prec >= 0)
+	if (t->flag.prec >= 0) // Vi ta dat ban dau prec = -1. Neu gap prec >=0 nghia la da co prec, do đó stop chuong trinh
 	{
 		t->i++;
 		return;
 	} //if already exist then do not take more prec
 	else if (fmt[t->i] == '.' && fmt[t->i + 1] == '*')
 	{
-		t->flag.prec = va_arg(t->valist, int);
+		t->flag.prec = va_arg(t->valist, int); // Tim trong valist dang int.
 		t->i += 2; // need to increase here because otherwise we won't move forward
 	}
 	else if (fmt[t->i] == '.' && ft_isdigit(fmt[t->i + 1]))

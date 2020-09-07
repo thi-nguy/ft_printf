@@ -100,12 +100,12 @@ int ft_printf(const char *fmt, ...)
 
 	ft_bzero(&t, sizeof(t)); // initiate a struct t with various information put as 0 at the begining
 	va_start(t.valist, fmt); // start the list of variables
-	if ((t.fd = 1) && fmt) // t.fd is assigned to 1, not comparation
+	if ((t.fd = 1) && fmt) // t.fd is assigned to 1, standard output
 	{
 		t.len = (int)ft_strlen(fmt); // get the lenght of fmt
 		while (t.i < t.len) // move i until the end of fmt
 		{
-			if (fmt[t.i] == '%' && t.len == 1) // if there is only %, we stop the program? We need to print %??? da fix, them dong write
+			if (fmt[t.i] == '%' && t.len == 1) // if there is only %, we print % and stop.
 			{
 				t.nb_print += write(t.fd, "%", 1);
 				break;
@@ -115,9 +115,9 @@ int ft_printf(const char *fmt, ...)
 				t.nb_print += write(t.fd, "%", 1);
 				t.i += 2;
 			}
- 			else if (fmt[t.i] == '%' && fmt[t.i + 1] != '%') // if there is a % and  after % is somthing else, we use -/-parse-/-
+ 			else if (fmt[t.i] == '%' && fmt[t.i + 1] != '%') // if there is a % and  after % is somthing else, we use "parse" to assign type and flag
 				parse(fmt, &t);
-			else // if there is no %, we print everything we encounter till the end.
+			else // if there is no %, we print the char we encounter, then increase the index.
 				t.nb_print += write(t.fd, fmt + (t.i)++, 1);
 		}
 	}

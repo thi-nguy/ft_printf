@@ -6,7 +6,7 @@
 /*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 19:17:21 by lgaultie          #+#    #+#             */
-/*   Updated: 2020/03/03 12:44:17 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/07 11:23:15 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void s(void)
 	printf("20) Vrai PRINTF : |%-1.0s|\n", "123456789");
 	ft_printf("20) Mon PRINTF  : |%-1.0s|\n", "123456789");
 	
-	/*printf("21) Vrai PRINTF : |%s|\n", NULL);
+	printf("21) Vrai PRINTF : |%s|\n", NULL);
 	ft_printf("21) Mon PRINTF  : |%s|\n", NULL);
 	printf("22) Vrai PRINTF : |%10s|\n", NULL);
 	ft_printf("22) Mon PRINTF  : |%10s|\n", NULL);
@@ -123,7 +123,7 @@ void s(void)
 /*
 void num(void)
 {
-	/*
+	
 	ft_printf("--------------------%%s--------------------\n");
 	printf("01) Vrai PRINTF: |%u|\n", 42);
 	ft_printf("01) Mon PRINTF : |%u|\n", 42);
@@ -137,9 +137,9 @@ void num(void)
 	ft_printf("05) Mon PRINTF :  |%10u|\n", -42);
 	printf("06) Vrai PRINTF : |%010u|\n", -42);
 	printf("06) Mon PRINTF  : |%010u|\n", -42);
-	/* neu co precision thi se in number va so 0 cho du precision, */
-	/* neu co them width thi se ko in gi cho du width */
-	/*
+	neu co precision thi se in number va so 0 cho du precision, 
+ neu co them width thi se ko in gi cho du width
+	
 	printf("10) Vrai PRINTF : |%010.3u|\n", 42);
 	ft_printf("10) Mon PRINTF:   |%010.3u|\n", 42);
 	printf("10a) Vrai PRINTF:|%10.3u|\n", 42);
@@ -315,11 +315,17 @@ void p(void)
 {
 	int		*tab = malloc(sizeof(int) * 10);
 	int		*tab2 = malloc(0);
+	int num_char_printed = 0;
+	int ft_num_char_printed = 0;
 	
 	ft_printf("--------------------%%p--------------------\n");			//perfect
 	
-	printf("01) Vrai PRINTF : |%p|\n", "salut");
-	ft_printf("01) Mon PRINTF  : |%p|\n", "salut");
+	num_char_printed = printf("01) Vrai PRINTF : |%p|\n", "salut");
+	ft_num_char_printed = ft_printf("01) Mon PRINTF  : |%p|\n", "salut");
+
+	printf("01) Num Char printed Vrai Printf: %i\n", num_char_printed);
+	printf("01) Num Char printed Mon Printf: %i\n", ft_num_char_printed);
+
 	printf("02) Vrai PRINTF : |%-p|\n", tab2);
 	ft_printf("02) Mon PRINTF  : |%-p|\n", tab2);
 	printf("03) Vrai PRINTF : |%---------p|\n", "test2");
