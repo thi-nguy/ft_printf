@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_precision.c                                            :+:      :+:    :+:   */
+/*   parse_prec.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/25 18:08:49 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/02/27 14:51:43 by thi-nguy         ###   ########.fr       */
+/*   Created: 2020/09/07 15:07:27 by thi-nguy          #+#    #+#             */
+/*   Updated: 2020/09/07 15:09:00 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void parse_prec(const char *fmt, t_data *t) //process ".*", ".number", or no precision
+void	parse_prec(const char *fmt, t_data *t)
 {
-	if (t->flag.prec >= 0) // Vi ta dat ban dau prec = -1. Neu gap prec >=0 nghia la da co prec, do đó stop chuong trinh
+	if (t->flag.prec >= 0)
 	{
 		t->i++;
-		return;
-	} //if already exist then do not take more prec
+		return ;
+	}
 	else if (fmt[t->i] == '.' && fmt[t->i + 1] == '*')
 	{
-		t->flag.prec = va_arg(t->valist, int); // Tim trong valist dang int.
-		t->i += 2; // need to increase here because otherwise we won't move forward
+		t->flag.prec = va_arg(t->valist, int);
+		t->i += 2;
 	}
 	else if (fmt[t->i] == '.' && ft_isdigit(fmt[t->i + 1]))
 	{

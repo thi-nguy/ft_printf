@@ -6,13 +6,13 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 10:49:28 by thi-nguy          #+#    #+#             */
-/*   Updated: 2019/12/11 15:47:07 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/07 14:48:25 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	get_size(int n)
+int		get_size(int n)
 {
 	int	i;
 
@@ -31,7 +31,7 @@ int	get_size(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	char	*str;
 	int		i;

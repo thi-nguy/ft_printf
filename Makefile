@@ -6,7 +6,7 @@
 #    By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/25 16:18:50 by thi-nguy          #+#    #+#              #
-#    Updated: 2020/09/07 11:05:44 by thi-nguy         ###   ########.fr        #
+#    Updated: 2020/09/07 14:40:01 by thi-nguy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ HEADER = ft_printf.h
 all: $(NAME)
 
 $(NAME):
-	gcc -c -g $(SRC) ft_printf.h
+	gcc -c -g $(SRC) $(HEADER)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
