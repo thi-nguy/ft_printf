@@ -6,19 +6,11 @@
 /*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 16:48:26 by weilin            #+#    #+#             */
-/*   Updated: 2020/09/07 15:05:07 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/09 14:35:57 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	init_flag(t_data *t)
-{
-	t->flag.minus = 0;
-	t->flag.zero = 0;
-	t->flag.width = 0;
-	t->flag.prec = -1;
-}
 
 void	parse_width(const char *fmt, t_data *t)
 {
@@ -48,19 +40,6 @@ void	parse_flag(const char *fmt, t_data *t)
 		else
 			t->i++;
 	}
-}
-
-void	print_back(const char *fmt, t_data *t)
-{
-	int c;
-
-	c = t->i;
-	while (fmt[t->i] != '%')
-	{
-		t->i--;
-	}
-	while (t->i <= c)
-		t->nb_print += write(t->fd, fmt + (t->i)++, 1);
 }
 
 void	parse_type(const char *fmt, t_data *t)
@@ -101,10 +80,7 @@ int		ft_printf(const char *fmt, ...)
 		while (t.i < t.len)
 		{
 			if (fmt[t.i] == '%' && t.len == 1)
-			{
-				t.nb_print += write(t.fd, "%", 1);
 				break ;
-			}
 			else if (fmt[t.i] == '%' && fmt[t.i + 1] == '%')
 			{
 				t.nb_print += write(t.fd, "%", 1);

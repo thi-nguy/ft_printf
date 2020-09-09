@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 15:22:00 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/07 15:24:14 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/09 10:47:06 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	print_rest_0_or_space_addr(t_data *t)
 		len = (int)ft_strlen(t->bf) + 1;
 	else
 		len = (int)ft_strlen(t->bf);
-	space = t->flag.width - ((t->flag.prec > (int)ft_strlen(t->bf) ? t->flag.prec : 0) + len + 2);
+	space = t->flag.width - ((t->flag.prec > (int)ft_strlen(t->bf) ?\
+				t->flag.prec : 0) + len + 2);
 	while (space > 0)
 	{
 		if (t->flag.zero == 1)

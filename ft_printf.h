@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:56:01 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/07 15:33:28 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/09 11:03:52 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,9 @@ char		*ft_itoa(int n);
 int		get_size(int n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strnew(size_t size);
+
+void	init_flag(t_data *t);
+void	print_back(const char *fmt, t_data *t);
+void	get_prec(t_data *t);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 14:48:32 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/07 14:53:31 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/09 15:38:35 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,14 @@ char	*ft_itox(long int n, char type)
 		str[i] = n - 10 + 'A';
 	return (str);
 }
+
+/*
+static char	ft_itox2(int d, char c, char type)
+{
+	if (d < 16 && type == 'x')
+		c = d - 10 + 'a';
+	else if (d < 16 && type == 'X')
+		c = d - 10 + 'A';
+	return (c);
+}
+*/

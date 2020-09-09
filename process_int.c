@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:12:26 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/07 15:21:53 by thi-nguy         ###   ########.fr       */
+/*   Created: 2020/09/09 14:02:18 by thi-nguy          #+#    #+#             */
+/*   Updated: 2020/09/09 14:02:25 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	print_rest_0_or_space(t_data *t)
 		len = (int)ft_strlen(t->bf) + 1;
 	else
 		len = (int)ft_strlen(t->bf);
-	space = t->flag.width - ((t->flag.prec > (int)ft_strlen(t->bf) ? t->flag.prec : 0) + len);
+	space = t->flag.width - ((t->flag.prec > (int)ft_strlen(t->bf) ?\
+				t->flag.prec : 0) + len);
 	while (space > 0)
 	{
 		if (t->flag.zero == 1)
@@ -49,37 +50,6 @@ void	check_sign_nbr(t_data *t)
 		t->bf = tmp;
 		t->flag.neg = 1;
 	}
-}
-
-void	get_prec(t_data *t)
-{
-	char	*zeros;
-	char	*tmp;
-	int		i;
-	int		len;
-
-	check_sign_nbr(t);
-	tmp = NULL;
-	zeros = NULL;
-	if (!(t->bf))
-		return ;
-	len = (int)ft_strlen(t->bf);
-	if (t->flag.prec == 0 && t->bf[0] == '0')
-		t->bf[0] = '\0';
-	else if (t->flag.prec > len)
-	{
-		i = t->flag.prec - len;
-		if (!(zeros = ft_strnew(i)))
-			return ;
-		while (i > 0)
-			zeros[--i] = '0';
-		tmp = ft_strjoin(zeros, t->bf);
-		free(zeros);
-		zeros = NULL;
-		free(t->bf);
-		t->bf = tmp;
-	}
-	t->flag.prec >= 0 ? t->flag.zero = 0 : 0;
 }
 
 void	print_nbr(t_data *t)
