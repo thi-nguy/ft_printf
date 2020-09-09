@@ -6,13 +6,13 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 14:48:32 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/09 15:38:35 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/09 15:51:50 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		get_size_hex(long int n)
+int				get_size_hex(long int n)
 {
 	int	i;
 
@@ -28,7 +28,18 @@ int		get_size_hex(long int n)
 	return (i);
 }
 
-char	*ft_itox(long int n, char type)
+static char		base_x(int d, char type)
+{
+	char	c;
+
+	if (d < 16 && type == 'x')
+		c = d - 10 + 'a';
+	else if (d < 16 && type == 'X')
+		c = d - 10 + 'A';
+	return (c);
+}
+
+char			*ft_itox(long int n, char type)
 {
 	char	*str;
 	int		i;
@@ -45,31 +56,10 @@ char	*ft_itox(long int n, char type)
 	while (n >= 16)
 	{
 		d = n % 16;
-		if (d < 10)
-			str[i] = d + '0';
-		else if (d < 16 && type == 'x')
-			str[i] = d - 10 + 'a';
-		else if (d < 16 && type == 'X')
-			str[i] = d - 10 + 'A';
+		d < 10 ? str[i] = (d + '0') : base_x(d, type);
 		n = n / 16;
 		i--;
 	}
-	if (n < 10)
-		str[i] = n + '0';
-	else if (n < 16 && type == 'x')
-		str[i] = n - 10 + 'a';
-	else if (n < 16 && type == 'X')
-		str[i] = n - 10 + 'A';
+	n < 10 ? str[i] = (n + '0') : base_x(n, type);
 	return (str);
 }
-
-/*
-static char	ft_itox2(int d, char c, char type)
-{
-	if (d < 16 && type == 'x')
-		c = d - 10 + 'a';
-	else if (d < 16 && type == 'X')
-		c = d - 10 + 'A';
-	return (c);
-}
-*/
