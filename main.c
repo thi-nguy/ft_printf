@@ -1,17 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 19:17:21 by lgaultie          #+#    #+#             */
-/*   Updated: 2020/09/07 11:23:15 by thi-nguy         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "ft_printf.h"
-/*
 void c(void)
 {
 	
@@ -20,8 +7,8 @@ void c(void)
 	ft_printf("01) Mon PRINTF  : |%c|\n", 'a');
 	printf("02) Vrai PRINTF : |%-c|\n", 'z');
 	ft_printf("02) Mon PRINTF  : |%-c|\n", 'z');
-	//printf("03) Vrai PRINTF : |%-----c|\n", '!');
-	//ft_printf("03) Mon PRINTF  : |%-----c|\n", '!');
+	printf("03) Vrai PRINTF : |%-----c|\n", '!');
+	ft_printf("03) Mon PRINTF  : |%-----c|\n", '!');
 	printf("04) Vrai PRINTF : |%5c|\n", 'R');
 	ft_printf("04) Mon PRINTF  : |%5c|\n", 'R');
 	printf("05) Vrai PRINTF : |%-5c|\n", 'R');
@@ -36,11 +23,9 @@ void c(void)
 	ft_printf("09) Mon PRINTF  : |%-5c|\n", '\0');
 	printf("10) Vrai PRINTF : |%1c|\n", '\0');
 	ft_printf("10} Mon PRINTF  : |%1c|\n", '\0');
-	printf("11) Vrai PRINTF : |%10w|\n");
-	ft_printf("11} Mon PRINTF  : |%10w|\n");
+	printf("11) Vrai PRINTF : |%10cw|\n", 'a');
+	ft_printf("11} Mon PRINTF  : |%10cw|\n", 'a');
 }
-*/
-/*
 void s(void)
 {
 	ft_printf("--------------------%%s--------------------\n");	//Perfect
@@ -48,8 +33,8 @@ void s(void)
 	ft_printf("01) Mon PRINTF  : |%.2s|\n", "salut");
 	printf("02) Vrai PRINTF : |%-s|\n", "test");
 	ft_printf("02) Mon PRINTF  : |%-s|\n", "test");
-	//printf("03) Vrai PRINTF : |%---------s|\n", "test2");
-	//ft_printf("03) Mon PRINTF  : |%----------s|\n", "test2");
+	printf("03) Vrai PRINTF : |%---------s|\n", "test2");
+	ft_printf("03) Mon PRINTF  : |%----------s|\n", "test2");
 	printf("04) Vrai PRINTF : |%10s|\n", "42");
 	ft_printf("04) Mon PRINTF  : |%10s|\n", "42");
 	printf("05) Vrai PRINTF : |%-10s|\n", "42");
@@ -109,22 +94,17 @@ void s(void)
 	ft_printf("30) Mon PRINTF  : |%1.0s|\n", NULL);
 	printf("31) Vrai PRINTF : |%-1.s|\n", NULL);
 	ft_printf("31) Mon PRINTF  : |%-1.s|\n", NULL);	
-
 	printf("\n32) Vrai PRINTF : |%.*s|\n", 3, "Hello");
 	ft_printf("32) Mon PRINTF  : |%.*s|\n", 3, "Hello");	
-
 	printf("\n33) Vrai PRINTF : |%.*10s|\n", 3, "Hello");
 	ft_printf("33) Mon PRINTF  : |%.*10s|\n", 3, "Hello");
-
-	//printf("\n34) Vrai PRINTF : |%*10s|\n", 3, "Hello");
+	printf("\n34) Vrai PRINTF : |%*10s|\n", 3, "Hello");
 	ft_printf("34) Mon PRINTF :  |%*10s|\n", 3, "Hello");
 }
-*/
-/*
 void num(void)
 {
 	
-	ft_printf("--------------------%%s--------------------\n");
+	ft_printf("--------------------%%num--------------------\n");
 	printf("01) Vrai PRINTF: |%u|\n", 42);
 	ft_printf("01) Mon PRINTF : |%u|\n", 42);
 	printf("02) Vrai PRINTF: |%u|\n", -42);
@@ -137,8 +117,8 @@ void num(void)
 	ft_printf("05) Mon PRINTF :  |%10u|\n", -42);
 	printf("06) Vrai PRINTF : |%010u|\n", -42);
 	printf("06) Mon PRINTF  : |%010u|\n", -42);
-	neu co precision thi se in number va so 0 cho du precision, 
- neu co them width thi se ko in gi cho du width
+	//neu co precision thi se in number va so 0 cho du precision, 
+ 	//neu co them width thi se ko in gi cho du width
 	
 	printf("10) Vrai PRINTF : |%010.3u|\n", 42);
 	ft_printf("10) Mon PRINTF:   |%010.3u|\n", 42);
@@ -156,7 +136,6 @@ void num(void)
 	ft_printf("12a) Mon PRINTF :  |%-10u|\n", -42); // 0 is ignored when - exists
 	printf("13) Vrai PRINTF : |%.10u|\n", -42);
 	ft_printf("13) Mon PRINTF :  |%.10u|\n", -42);
-
 	printf("\n14) Vrai PRINTF : |%010u|\n", -42);
 	ft_printf("14) Mon PRINTF :  |%010u|\n", -42);
 	printf("14a) Vrai PRINTF : |%-010u|\n", -42);
@@ -165,93 +144,83 @@ void num(void)
 	ft_printf("15) Mon PRINTF :  |%10u|\n", -42);
 	printf("16) Vrai PRINTF : |%-10u|\n", -42); 
 	ft_printf("16) Mon PRINTF :  |%-10u|\n", -42); 
-
-
 	printf("17) Vrai PRINTF : |%-*.1u|\n", 10, -42);
 	ft_printf("17) Mon PRINTF :  |%-*.1u|\n", 10, -42);
-	*/
-	//printf("18) Vrai PRINTF : |%-015.*u|\n", 10, -123);
-	//ft_printf("18) Mon PRINTF :  |%-015.*u|\n", 10, -123);
+	printf("18) Vrai PRINTF : |%-015.*u|\n", 10, -123);
+	ft_printf("18) Mon PRINTF :  |%-015.*u|\n", 10, -123);
 	
 	// thu truong hop precision nho hon do dai cua so
-	/*
 	printf("19) Vrai PRINTF : |%015.*u|\n", 3, 1234567);
 	ft_printf("19) Mon PRINTF :  |%015.*u|\n", 3, 1234567);
 	printf("20) Vrai PRINTF : |%0*u|\n", 15, -1234567);
 	ft_printf("20) Mon PRINTF :  |%0*u|\n", 15, -1234567);
 	printf("21) Vrai PRINTF : |%-0*u|\n", 15, -1234567);
 	ft_printf("21) Mon PRINTF :  |%-0*u|\n", 15, -1234567);
-	*/
-	//printf("21) Vrai PRINTF : |%-0*u|\n", 15, -1234567);
-	//ft_printf("21) Mon PRINTF :  |%-0*u|\n", 15, -1234567);
+	printf("21) Vrai PRINTF : |%-0*u|\n", 15, -1234567);
+	ft_printf("21) Mon PRINTF :  |%-0*u|\n", 15, -1234567);
 
-//}
-/*
+}
+
 void hex(void)
 {
 	ft_printf("--------------------%%xX--------------------\n");
-	printf("01) Vrai PRINTF: |%u|\n", 42);
-	ft_printf("01) Mon PRINTF : |%u|\n", 42);
+	printf("01) Vrai PRINTF: |%x|\n", 42);
+	ft_printf("01) Mon PRINTF : |%x|\n", 42);
 	
-	printf("02) Vrai PRINTF: |%u|\n", -42); // so am
-	ft_printf("02) Mon PRINTF : |%u|\n", -42);
+	printf("02) Vrai PRINTF: |%x|\n", -42); // so am
+	ft_printf("02) Mon PRINTF : |%x|\n", -42);
 	
-	printf("03) Vrai PRINTF: |%-u|\n", -42);
-	ft_printf("03) Mon PRINTF : |%-u|\n", -42);
-	printf("04) Vrai PRINTF : |%-10u|\n", -42);
-	ft_printf("04) Mon PRINTF :  |%-10u|\n", -42);
-	printf("05) Vrai PRINTF : |%10u|\n", -42);
-	ft_printf("05) Mon PRINTF :  |%10u|\n", -42);
-	printf("06) Vrai PRINTF : |%010u|\n", -42);
-	printf("06) Mon PRINTF  : |%010u|\n", -42);
+	printf("03) Vrai PRINTF: |%-x|\n", -42);
+	ft_printf("03) Mon PRINTF : |%-x|\n", -42);
+	printf("04) Vrai PRINTF : |%-10x|\n", -42);
+	ft_printf("04) Mon PRINTF :  |%-10x|\n", -42);
+	printf("05) Vrai PRINTF : |%10x|\n", -42);
+	ft_printf("05) Mon PRINTF :  |%10x|\n", -42);
+	printf("06) Vrai PRINTF : |%010X|\n", -42);
+	printf("06) Mon PRINTF  : |%010X|\n", -42);
 		
-	printf("10) Vrai PRINTF : |%010.3u|\n", 42);
-	ft_printf("10) Mon PRINTF:   |%010.3u|\n", 42);
+	printf("10) Vrai PRINTF : |%010.3x|\n", 42);
+	ft_printf("10) Mon PRINTF:   |%010.3x|\n", 42);
 	
-	printf("10a) Vrai PRINTF:|%10.3u|\n", 42);
-	ft_printf("10a) Mon PRINTF: |%10.3u|\n", 42);
-	printf("10b) Vrai PRINTF:|%10.3u|\n", -42);
-	ft_printf("10b) Mon PRINTF: |%10.3u|\n", -42);
-	printf("10c) Vrai PRINTF:|%-10.3u|\n", -42);
-	ft_printf("10c) Mon PRINTF: |%-10.3u|\n", -42);
-	printf("11) Vrai PRINTF : |%.10u|\n", -42);
-	ft_printf("11) Mon PRINTF :  |%.10u|\n", -42);
-	printf("12) Vrai PRINTF : |%-10u|\n", 42); // 0 is ignored when - exists
-	ft_printf("12) Mon PRINTF :  |%-10u|\n", 42); // 0 is ignored when - exists
-	printf("12a) Vrai PRINTF : |%-10u|\n", -42);
-	ft_printf("12a) Mon PRINTF :  |%-10u|\n", -42); // 0 is ignored when - exists
-	printf("13) Vrai PRINTF : |%.10u|\n", -42);
-	ft_printf("13) Mon PRINTF :  |%.10u|\n", -42);
-
-	printf("\n14) Vrai PRINTF : |%010u|\n", -42);
-	ft_printf("14) Mon PRINTF :  |%010u|\n", -42);
-	printf("14a) Vrai PRINTF : |%-010u|\n", -42);
-	ft_printf("14a) Mon PRINTF :  |%-010u|\n", -42);
-	printf("15) Vrai PRINTF : |%10u|\n", -42); 
-	ft_printf("15) Mon PRINTF :  |%10u|\n", -42);
-	printf("16) Vrai PRINTF : |%-10u|\n", -42); 
-	ft_printf("16) Mon PRINTF :  |%-10u|\n", -42); 
-
-
-	printf("17) Vrai PRINTF : |%-*.1u|\n", 10, -42);
-	ft_printf("17) Mon PRINTF :  |%-*.1u|\n", 10, -42);
+	printf("10a) Vrai PRINTF:|%10.3X|\n", 42);
+	ft_printf("10a) Mon PRINTF: |%10.3X|\n", 42);
+	printf("10b) Vrai PRINTF:|%10.3x|\n", -42);
+	ft_printf("10b) Mon PRINTF: |%10.3x|\n", -42);
+	printf("10c) Vrai PRINTF:|%-10.3x|\n", -42);
+	ft_printf("10c) Mon PRINTF: |%-10.3x|\n", -42);
+	printf("11) Vrai PRINTF : |%.10X|\n", -42);
+	ft_printf("11) Mon PRINTF :  |%.10X|\n", -42);
+	printf("12) Vrai PRINTF : |%-10X|\n", 42); // 0 is ignored when - exists
+	ft_printf("12) Mon PRINTF :  |%-10X|\n", 42); // 0 is ignored when - exists
+	printf("12a) Vrai PRINTF : |%-10X|\n", -42);
+	ft_printf("12a) Mon PRINTF :  |%-10X|\n", -42); // 0 is ignored when - exists
+	printf("13) Vrai PRINTF : |%.10X|\n", -42);
+	ft_printf("13) Mon PRINTF :  |%.10X|\n", -42);
+	printf("\n14) Vrai PRINTF : |%010X|\n", -42);
+	ft_printf("14) Mon PRINTF :  |%010X|\n", -42);
+	printf("14a) Vrai PRINTF : |%-010x|\n", -42);
+	ft_printf("14a) Mon PRINTF :  |%-010x|\n", -42);
+	printf("15) Vrai PRINTF : |%10x|\n", -42); 
+	ft_printf("15) Mon PRINTF :  |%10x|\n", -42);
+	printf("16) Vrai PRINTF : |%-10x|\n", -42); 
+	ft_printf("16) Mon PRINTF :  |%-10x|\n", -42); 
+	printf("17) Vrai PRINTF : |%-*.1x|\n", 10, -42);
+	ft_printf("17) Mon PRINTF :  |%-*.1x|\n", 10, -42);
 	
-	printf("18) Vrai PRINTF : |%-015.*u|\n", 10, -123);
-	ft_printf("18) Mon PRINTF :  |%-015.*u|\n", 10, -123);
+	printf("18) Vrai PRINTF : |%-015.*x|\n", 10, -123);
+	ft_printf("18) Mon PRINTF :  |%-015.*x|\n", 10, -123);
 	
 	// thu truong hop precision nho hon do dai cua so
-	printf("19) Vrai PRINTF : |%015.*u|\n", 3, 1234567);
-	ft_printf("19) Mon PRINTF :  |%015.*u|\n", 3, 1234567);
-	printf("20) Vrai PRINTF : |%0*u|\n", 15, -1234567);
-	ft_printf("20) Mon PRINTF :  |%0*u|\n", 15, -1234567);
-	printf("21) Vrai PRINTF : |%-0*u|\n", 15, -1234567);
-	ft_printf("21) Mon PRINTF :  |%-0*u|\n", 15, -1234567);
+	printf("19) Vrai PRINTF : |%015.*x|\n", 3, 1234567);
+	ft_printf("19) Mon PRINTF :  |%015.*x|\n", 3, 1234567);
+	printf("20) Vrai PRINTF : |%0*x|\n", 15, -1234567);
+	ft_printf("20) Mon PRINTF :  |%0*x|\n", 15, -1234567);
+	printf("21) Vrai PRINTF : |%-0*x|\n", 15, -1234567);
+	ft_printf("21) Mon PRINTF :  |%-0*x|\n", 15, -1234567);
 }
-*/
-/*
 void u(void)
 {
-	ft_printf("--------------------%%xX--------------------\n");
+	ft_printf("--------------------%%u--------------------\n");
 	printf("01) Vrai PRINTF: |%u|\n", 42);
 	ft_printf("01) Mon PRINTF : |%u|\n", 42);
 	
@@ -284,7 +253,6 @@ void u(void)
 	ft_printf("12a) Mon PRINTF :  |%-10u|\n", -42); // 0 is ignored when - exists
 	printf("13) Vrai PRINTF : |%.10u|\n", -42);
 	ft_printf("13) Mon PRINTF :  |%.10u|\n", -42);
-
 	printf("\n14) Vrai PRINTF : |%010u|\n", -42);
 	ft_printf("14) Mon PRINTF :  |%010u|\n", -42);
 	printf("14a) Vrai PRINTF : |%-010u|\n", -42);
@@ -293,8 +261,6 @@ void u(void)
 	ft_printf("15) Mon PRINTF :  |%10u|\n", -42);
 	printf("16) Vrai PRINTF : |%-10u|\n", -42); 
 	ft_printf("16) Mon PRINTF :  |%-10u|\n", -42); 
-
-
 	printf("17) Vrai PRINTF : |%-*.1u|\n", 10, -42);
 	ft_printf("17) Mon PRINTF :  |%-*.1u|\n", 10, -42);
 	
@@ -309,31 +275,25 @@ void u(void)
 	printf("21) Vrai PRINTF : |%-0*u|\n", 15, -1234567);
 	ft_printf("21) Mon PRINTF :  |%-0*u|\n", 15, -1234567);
 }
-*/
 
 void p(void)
 {
 	int		*tab = malloc(sizeof(int) * 10);
 	int		*tab2 = malloc(0);
-	int num_char_printed = 0;
-	int ft_num_char_printed = 0;
+	int		*tab3 = malloc(sizeof(int) * 20);
 	
 	ft_printf("--------------------%%p--------------------\n");			//perfect
 	
-	num_char_printed = printf("01) Vrai PRINTF : |%p|\n", "salut");
-	ft_num_char_printed = ft_printf("01) Mon PRINTF  : |%p|\n", "salut");
-
-	printf("01) Num Char printed Vrai Printf: %i\n", num_char_printed);
-	printf("01) Num Char printed Mon Printf: %i\n", ft_num_char_printed);
-
+	printf("01) Vrai PRINTF : |%p|\n", tab3);
+	ft_printf("01) Mon PRINTF  : |%p|\n", tab3);
 	printf("02) Vrai PRINTF : |%-p|\n", tab2);
 	ft_printf("02) Mon PRINTF  : |%-p|\n", tab2);
-	printf("03) Vrai PRINTF : |%---------p|\n", "test2");
-	ft_printf("03) Mon PRINTF  : |%----------p|\n", "test2");
-	printf("04) Vrai PRINTF : |%10p|\n", "42");
-	ft_printf("04) Mon PRINTF  : |%10p|\n", "42");
-	printf("05) Vrai PRINTF : |%-10p|\n", "42");
-	ft_printf("05) Mon PRINTF  : |%-10p|\n", "42");
+	printf("03) Vrai PRINTF : |%---------p|\n", tab3);
+	ft_printf("03) Mon PRINTF  : |%----------p|\n", tab3);
+	printf("04) Vrai PRINTF : |%10p|\n", tab);
+	ft_printf("04) Mon PRINTF  : |%10p|\n", tab);
+	printf("05) Vrai PRINTF : |%-10p|\n", tab2);
+	ft_printf("05) Mon PRINTF  : |%-10p|\n", tab2);
 	printf("06) Vrai PRINTF : |%2p|\n", tab);
 	ft_printf("06) Mon PRINTF  : |%2p|\n", tab);
 	printf("07) Vrai PRINTF : |%-2p|\n", tab);
@@ -354,13 +314,25 @@ void p(void)
 	free(tab2);
 }
 
+void other_cases(void)
+{
+	ft_printf("--------------------%%Other Case--------------------\n");
+	printf("01) Vrai PRINTF : |%|\n");
+	ft_printf("01) Mon PRINTF  : |%|\n");
+	printf("02) Vrai PRINTF : |%%|\n");
+	ft_printf("02) Mon PRINTF  : |%%|\n");
+	printf("03) Vrai PRINTF : |\%|\n");
+	ft_printf("03) Mon PRINTF  : |\%|\n");
+}
+
 int		main(void)
 {
-	//hex();
-	//num();
-	//c();
-	//s();
-	//u();
+	hex();
+	u();
+	num();
+	c();
+	s();
 	p();
+	other_cases();
 	return (0);
 }

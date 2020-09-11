@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itox.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/07 14:48:32 by thi-nguy          #+#    #+#             */
+/*   Updated: 2020/09/09 15:51:50 by thi-nguy         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
-int	get_size_hex(long int n)
+int				get_size_hex(long int n)
 {
 	int	i;
 
 	i = 0;
 	if (n < 0)
-	{
 		n = 4294967296 + n;
-	}
 	while (n >= 16)
 	{
 		n = n / 16;
@@ -18,12 +28,23 @@ int	get_size_hex(long int n)
 	return (i);
 }
 
-char		*ft_itox(long int n, char type) //negative number will be transfer in hex or considered as flag -?
+static char		base_x(int d, char type)
+{
+	char	c;
+
+	if (d < 16 && type == 'x')
+		c = d - 10 + 'a';
+	else if (d < 16 && type == 'X')
+		c = d - 10 + 'A';
+	return (c);
+}
+
+char			*ft_itox(long int n, char type)
 {
 	char	*str;
 	int		i;
 	int		len;
-	int 	d;
+	int		d;
 
 	len = get_size_hex(n);
 	if (!(str = malloc((len + 1) * sizeof(*str))))
@@ -31,26 +52,14 @@ char		*ft_itox(long int n, char type) //negative number will be transfer in hex 
 	i = len - 1;
 	str[len] = '\0';
 	if (n < 0)
-	{
 		n = 4294967296 + n;
-	} //Tai sao no khong truyen so am vao?
 	while (n >= 16)
 	{
 		d = n % 16;
-		if (d < 10)
-			str[i] = d + '0';
-		else if (d < 16 && type == 'x')
-			str[i] = d - 10 + 'a';
-		else if (d < 16 && type == 'X')
-			str[i] = d - 10 + 'A';
+		str[i] = (d < 10 ? (d + '0') : base_x(d, type));
 		n = n / 16;
 		i--;
 	}
-	if (n < 10)
-		str[i] = n + '0';
-	else if (n < 16 && type == 'x')
-		str[i] = n - 10 + 'a';
-	else if (n < 16 && type == 'X')
-		str[i] = n - 10 + 'A';
+	str[i] = (n < 10 ? (n + '0') : base_x(n, type));
 	return (str);
 }

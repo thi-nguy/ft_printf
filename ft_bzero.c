@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 13:30:37 by thi-nguy          #+#    #+#             */
-/*   Updated: 2019/11/19 12:34:39 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/07 14:47:31 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_bzero(void *str, size_t n)
 	p = str;
 	while (n > 0)
 	{
-		*p = 0; // gan khoang trong (Nul)?
+		*p = 0;
 		p++;
 		n--;
 	}

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   process_hex.c                                      :+:      :+:    :+:   */
+/*   print_back.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/07 15:10:54 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/07 15:12:15 by thi-nguy         ###   ########.fr       */
+/*   Created: 2020/09/09 10:59:46 by thi-nguy          #+#    #+#             */
+/*   Updated: 2020/09/09 15:33:13 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	get_hex(char type, t_data *t)
+void	print_back(const char *fmt, t_data *t)
 {
-	long int	nbr;
-	char		*nbr_str;
+	int c;
 
-	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
-	if ((nbr = (long int)va_arg(t->valist, long int)))
-	{
-		nbr_str = ft_itox(nbr, type);
-		t->bf = ft_strdup(nbr_str);
-		if (t->bf)
-			print_nbr(t);
-	}
+	c = t->i;
+	while (fmt[t->i] != '%')
+		t->i--;
+	while (t->i <= c)
+		t->nb_print += write(t->fd, fmt + (t->i)++, 1);
 }
