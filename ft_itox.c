@@ -56,10 +56,10 @@ char			*ft_itox(long int n, char type)
 	while (n >= 16)
 	{
 		d = n % 16;
-		d < 10 ? str[i] = (d + '0') : base_x(d, type);
+		str[i] = (d < 10 ? (d + '0') : base_x(d, type));
 		n = n / 16;
 		i--;
 	}
-	n < 10 ? str[i] = (n + '0') : base_x(n, type);
+	str[i] = (n < 10 ? (n + '0') : base_x(n, type));
 	return (str);
 }
