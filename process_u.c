@@ -58,11 +58,12 @@ char	*ft_longi_toa(long int n)
 
 void	get_u(t_data *t)
 {
-	long int	nbr;
+	unsigned int	nbr;
 	char		*nbr_str;
 
 	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
-	if ((nbr = (long int)va_arg(t->valist, long int)))
+	nbr = (unsigned int)va_arg(t->valist, unsigned int);
+	if (nbr || nbr == 0)
 	{
 		if (nbr < 0)
 			nbr = 4294967296 + nbr;

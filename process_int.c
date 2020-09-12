@@ -83,8 +83,9 @@ void	get_int(t_data *t)
 	int		nbr;
 	char	*nbr_str;
 
-	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
-	if ((nbr = (int)va_arg(t->valist, int)))
+	t->flag.minus == 1 ? t->flag.zero = 0 : 0; //?
+	nbr = (int)va_arg(t->valist, int);
+	if (nbr || nbr == 0)
 	{
 		nbr_str = ft_itoa(nbr);
 		t->bf = ft_strdup(nbr_str);

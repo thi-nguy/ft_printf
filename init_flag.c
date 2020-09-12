@@ -18,4 +18,5 @@ void	init_flag(t_data *t)
 	t->flag.zero = 0;
 	t->flag.width = 0;
 	t->flag.prec = -1;
+	t->flag.neg = 0;
 }

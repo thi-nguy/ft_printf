@@ -14,11 +14,12 @@
 
 void	get_hex(char type, t_data *t)
 {
-	long int	nbr;
+	int	nbr;
 	char		*nbr_str;
 
 	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
-	if ((nbr = (long int)va_arg(t->valist, long int)))
+	nbr = (int)va_arg(t->valist, int);
+	if (nbr || nbr == 0)
 	{
 		nbr_str = ft_itox(nbr, type);
 		t->bf = ft_strdup(nbr_str);
