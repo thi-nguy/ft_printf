@@ -65,19 +65,19 @@ void	get_p(t_data *t)
 	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
 	if ((val = va_arg(t->valist, unsigned long int)))
 	{
-		if (t->flag.prec == 0)
-			t->bf = ft_strdup("\0");
-		else
-		{
-			t->bf = ft_itox(val, 'x');
-		}
+		t->bf = ft_itox(val, 'x');
 		if (!t->bf)
 			return ;
 		print_addr(t);
 	}
-	else
+	else if (!val && t->flag.prec != 0)
 	{
 		t->bf = ft_strdup("0");
+		print_addr(t);
+	}
+	else if (!val && t->flag.prec == 0)
+	{
+		t->bf = ft_strdup("");
 		print_addr(t);
 	}
 }

@@ -99,7 +99,25 @@ void s(void)
 	printf("\n33) Vrai PRINTF : |%.*10s|\n", 3, "Hello");
 	ft_printf("33) Mon PRINTF  : |%.*10s|\n", 3, "Hello");
 	printf("\n34) Vrai PRINTF : |%*10s|\n", 3, "Hello");
-	ft_printf("34) Mon PRINTF :  |%*10s|\n", 3, "Hello");
+	ft_printf("34) Mon PRINTF  : |%*10s|\n", 3, "Hello");
+	
+	//Test case of 42printfLover
+	char *s = "abc";
+	char *t = NULL;
+	printf("35) Vrai PRINTF : |%-16.s|\n", NULL);
+	ft_printf("35) Mon PRINTF  : |%-16.s|\n", NULL);
+	printf("-->|%-16.s|<--\n", s);
+	ft_printf("-->|%-16.s|<--\n", s);
+	printf("-->|%*.*s|<--\n", -1, 0, s);
+	ft_printf("-->|%*.*s|<--\n", -1, 0, s);
+	printf("-->|%--9.s|<--\n", s);
+	ft_printf("-->|%--9.s|<--\n", s);
+	printf("-->|%-3.0s|<--\n", s);
+	ft_printf("-->|%-3.0s|<--\n", s);
+	printf("-->|%-3.0s|<--\n", t);
+	ft_printf("-->|%-3.0s|<--\n", t);
+	printf("35) Vrai PRINTF : |%-16.s|\n");
+	ft_printf("35) Mon PRINTF  : |%-16.s|\n");
 }
 
 void i(void)
@@ -164,7 +182,7 @@ void i(void)
 
 void d(void)
 {
-    /*
+    
     ft_printf("--------------------%%d--------------------\n");
     printf("01) Vrai PRINTF: |%d|\n", 42);
     ft_printf("01) Mon PRINTF : |%d|\n", 42);
@@ -219,7 +237,7 @@ void d(void)
     ft_printf("21) Mon PRINTF :  |%-0*d|\n", 15, -1234567);
     printf("21) Vrai PRINTF : |%-0*d|\n", 15, -1234567);
     ft_printf("21) Mon PRINTF :  |%-0*d|\n", 15, -1234567);
-	*/
+	
 // Extreme case in 42TESTER
 	int zero = 0;
 	char c = 'a';
@@ -382,6 +400,8 @@ void p(void)
 	int		*tab = malloc(sizeof(int) * 10);
 	int		*tab2 = malloc(0);
 	int		*tab3 = malloc(sizeof(int) * 20);
+	int		*p = malloc(sizeof(int) * 10);
+	
 	
 	ft_printf("--------------------%%p--------------------\n");			//perfect
 	
@@ -411,8 +431,20 @@ void p(void)
 	ft_printf("15) Mon PRINTF  : |%10p|\n", NULL);
 	printf("16) Vrai PRINTF : |%-10p|\n", NULL);
 	ft_printf("16) Mon PRINTF  : |%-10p|\n", NULL);
+	
+	// Test cases of Printf_Lover
+	printf("-->|%-16.p|<--\n", p);
+	ft_printf("-->|%-16.p|<--\n", p);
+	printf("-->|%-16.0p|<--\n", p);
+	ft_printf("-->|%-16.0p|<--\n", p);
+	
+
+	printf("-->|%-*.p|<--\n", -16, NULL);
+	ft_printf("-->|%-*.p|<--\n", -16, NULL);
 	free(tab);
 	free(tab2);
+	free(tab3);
+	free(p);
 }
 
 void other_cases(void)
@@ -428,12 +460,12 @@ void other_cases(void)
 
 int		main(void)
 {
-	hex();
-//    u();
+//	hex();
+//  u();
 //	i();
 //  d();
 //	c();
-//	s();
+	s();
 //	p();
 //	other_cases();
 	return (0);
