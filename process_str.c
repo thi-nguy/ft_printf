@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:05:21 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/07 15:24:43 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/14 15:03:08 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,4 @@ void	print_str(t_data *t)
 		t->nb_print += write(t->fd, t->bf, ft_strlen(t->bf));
 	}
 	t->i++;
-	//free(t->bf);
-	//t->bf = NULL;
 }

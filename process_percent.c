@@ -6,13 +6,13 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/14 14:35:21 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/14 14:37:28 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/14 15:01:35 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    get_percent(t_data *t)
+void	get_percent(t_data *t)
 {
 	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
 	print_char(t, '%');

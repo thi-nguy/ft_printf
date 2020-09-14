@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 15:10:54 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/07 15:12:15 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/14 15:00:53 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	get_hex(char type, t_data *t)
 {
-	int	nbr;
-	char		*nbr_str;
+	int		nbr;
+	char	*nbr_str;
 
 	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
 	nbr = (int)va_arg(t->valist, int);

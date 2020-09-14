@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 15:24:52 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/07 15:27:53 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/14 15:04:54 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char	*ft_longi_toa(long int n)
 void	get_u(t_data *t)
 {
 	unsigned int	nbr;
-	char		*nbr_str;
+	char			*nbr_str;
 
 	t->flag.minus == 1 ? t->flag.zero = 0 : 0;
 	nbr = (unsigned int)va_arg(t->valist, unsigned int);
