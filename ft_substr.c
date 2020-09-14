@@ -20,7 +20,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s)
 		return (NULL);
 	if (*s == '\0' || len < 0)
-		return (NULL);
+		return ("");
 	if (start > ft_strlen(s))
 		return ("");
 	if (*s != '\0')

@@ -104,6 +104,7 @@ void s(void)
 	//Test case of 42printfLover
 	char *s = "abc";
 	char *t = NULL;
+	char *u = "";
 	printf("35) Vrai PRINTF : |%-16.s|\n", NULL);
 	ft_printf("35) Mon PRINTF  : |%-16.s|\n", NULL);
 	printf("-->|%-16.s|<--\n", s);
@@ -116,8 +117,9 @@ void s(void)
 	ft_printf("-->|%-3.0s|<--\n", s);
 	printf("-->|%-3.0s|<--\n", t);
 	ft_printf("-->|%-3.0s|<--\n", t);
-	printf("35) Vrai PRINTF : |%-16.s|\n");
-	ft_printf("35) Mon PRINTF  : |%-16.s|\n");
+
+	printf("36) Vrai PRINTF : |%-16.s|\n", u);
+	ft_printf("36) Mon PRINTF  : |%-16.s|\n", u);
 }
 
 void i(void)
@@ -449,13 +451,66 @@ void p(void)
 
 void other_cases(void)
 {
-	ft_printf("--------------------%%Other Case--------------------\n");
+	ft_printf("--------------------%%Other Case with %--------------------\n");
 	printf("01) Vrai PRINTF : |%|\n");
 	ft_printf("01) Mon PRINTF  : |%|\n");
 	printf("02) Vrai PRINTF : |%%|\n");
 	ft_printf("02) Mon PRINTF  : |%%|\n");
 	printf("03) Vrai PRINTF : |\%|\n");
 	ft_printf("03) Mon PRINTF  : |\%|\n");
+    
+    printf("01) Vrai PRINTF: |%%|\n");
+    ft_printf("01) Mon PRINTF : |%%|\n");
+    printf("02) Vrai PRINTF: |%%|\n");
+    ft_printf("02) Mon PRINTF : |%%|\n");
+    printf("03) Vrai PRINTF: |%-%|\n");
+    ft_printf("03) Mon PRINTF : |%-%|\n");
+    printf("04) Vrai PRINTF : |%-10%|\n");
+    ft_printf("04) Mon PRINTF :  |%-10%|\n");
+    printf("05) Vrai PRINTF : |%10%|\n");
+    ft_printf("05) Mon PRINTF :  |%10%|\n");
+    printf("06) Vrai PRINTF : |%010%|\n");
+    printf("06) Mon PRINTF  : |%010%|\n");
+    
+    printf("10) Vrai PRINTF : |%010.3%|\n");
+    ft_printf("10) Mon PRINTF:   |%010.3%|\n");
+    printf("10a) Vrai PRINTF:|%10.3%|\n");
+    ft_printf("10a) Mon PRINTF: |%10.3%|\n");
+    printf("10b) Vrai PRINTF:|%10.3%|\n");
+    ft_printf("10b) Mon PRINTF: |%10.3%|\n");
+    printf("10c) Vrai PRINTF:|%-10.3%|\n");
+    ft_printf("10c) Mon PRINTF: |%-10.3%|\n");
+    printf("11) Vrai PRINTF : |%.10%|\n");
+    ft_printf("11) Mon PRINTF :  |%.10%|\n");
+    printf("12) Vrai PRINTF : |%-10%|\n"); // 0 is ignored when - exists
+    ft_printf("12) Mon PRINTF :  |%-10%|\n"); // 0 is ignored when - exists
+    printf("12a) Vrai PRINTF : |%-10%|\n");
+    ft_printf("12a) Mon PRINTF :  |%-10%|\n"); // 0 is ignored when - exists
+    printf("13) Vrai PRINTF : |%.10%|\n");
+    ft_printf("13) Mon PRINTF :  |%.10%|\n");
+    printf("\n14) Vrai PRINTF : |%010%|\n");
+    ft_printf("14) Mon PRINTF :  |%010%|\n");
+    printf("14a) Vrai PRINTF : |%-010%|\n");
+    ft_printf("14a) Mon PRINTF :  |%-010%|\n");
+    printf("15) Vrai PRINTF : |%10%|\n");
+    ft_printf("15) Mon PRINTF :  |%10%|\n");
+    printf("16) Vrai PRINTF : |%-10%|\n");
+    ft_printf("16) Mon PRINTF :  |%-10%|\n");
+    printf("17) Vrai PRINTF : |%-*.1%|\n", 10);
+    ft_printf("17) Mon PRINTF :  |%-*.1%|\n", 10);
+    printf("18) Vrai PRINTF : |%-015.*%|\n", 10);
+    ft_printf("18) Mon PRINTF :  |%-015.*%|\n", 10);
+    
+    // thu truong hop precision nho hon do dai cua so
+    printf("19) Vrai PRINTF : |%015.*%|\n", 3);
+    ft_printf("19) Mon PRINTF :  |%015.*%|\n", 3);
+    printf("20) Vrai PRINTF : |%0*%|\n", 15);
+    ft_printf("20) Mon PRINTF :  |%0*%|\n", 15);
+    printf("21) Vrai PRINTF : |%-0*%|\n", 15);
+    ft_printf("21) Mon PRINTF :  |%-0*%|\n", 15);
+    printf("21) Vrai PRINTF : |%-0*%|\n", 15);
+    ft_printf("21) Mon PRINTF :  |%-0*%|\n", 15);
+	
 }
 
 int		main(void)
@@ -465,8 +520,8 @@ int		main(void)
 //	i();
 //  d();
 //	c();
-	s();
+//	s();
 //	p();
-//	other_cases();
+	other_cases();
 	return (0);
 }

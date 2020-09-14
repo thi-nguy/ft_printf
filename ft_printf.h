@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:56:01 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/11 14:31:45 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/14 14:37:57 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,7 @@ char				*ft_strnew(size_t size);
 void				init_flag(t_data *t);
 void				print_back(const char *fmt, t_data *t);
 void				get_prec(t_data *t);
+
+void				get_percent(t_data *t);
 
 #endif

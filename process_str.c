@@ -48,5 +48,6 @@ void	print_str(t_data *t)
 		t->nb_print += write(t->fd, t->bf, ft_strlen(t->bf));
 	}
 	t->i++;
-	free(t->bf);
+	//free(t->bf);
+	//t->bf = NULL;
 }
