@@ -6,13 +6,13 @@
 /*   By: thi-nguy <thi-nguy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 16:48:26 by weilin            #+#    #+#             */
-/*   Updated: 2020/09/14 14:36:07 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/15 10:22:43 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	parse_width(const char *fmt, t_data *t)
+void	parse_width(t_data *t)
 {
 	t->flag.width = va_arg(t->valist, int);
 	if (t->flag.width < 0)
@@ -28,7 +28,7 @@ void	parse_flag(const char *fmt, t_data *t)
 	{
 		fmt[t->i] == '-' ? t->flag.minus = 1 : 0;
 		fmt[t->i] == '0' ? t->flag.zero = 1 : 0;
-		fmt[t->i] == '*' ? parse_width(fmt, t) : 0;
+		fmt[t->i] == '*' ? parse_width(t) : 0;
 		if (fmt[t->i] == '.')
 			parse_prec(fmt, t);
 		else if (ft_isdigit(fmt[t->i]))

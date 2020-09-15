@@ -6,7 +6,7 @@
 /*   By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 17:56:01 by thi-nguy          #+#    #+#             */
-/*   Updated: 2020/09/14 14:37:57 by thi-nguy         ###   ########.fr       */
+/*   Updated: 2020/09/15 10:21:25 by thi-nguy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void				parse(const char *fmt, t_data *t);
 int					ft_printf(const char *fmt, ...);
 
 void				parse_prec(const char *fmt, t_data *t);
-void				parse_width(const char *fmt, t_data *t);
+void				parse_width(t_data *t);
 void				print_back(const char *fmt, t_data *t);
 
 void				ft_bzero(void *str, size_t n);

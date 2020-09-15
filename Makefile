@@ -6,11 +6,19 @@
 #    By: thi-nguy <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/25 16:18:50 by thi-nguy          #+#    #+#              #
-#    Updated: 2020/09/14 14:36:49 by thi-nguy         ###   ########.fr        #
+#    Updated: 2020/09/15 10:31:46 by thi-nguy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
+CC = gcc -c
+
+AR = ar rc
+
+HEADER = ft_printf.h
+
+FLAGS = -Wall -Wextra -Werror
 
 SRC = ft_atoi.c ft_bzero.c ft_isdigit.c ft_strchr.c ft_strdup.c ft_strlen.c\
 		 ft_substr.c ft_itoa.c ft_strnew.c ft_strjoin.c ft_itox.c\
@@ -21,13 +29,11 @@ SRC = ft_atoi.c ft_bzero.c ft_isdigit.c ft_strchr.c ft_strdup.c ft_strlen.c\
 
 OBJ = $(SRC:.c=.o)
 
-HEADER = ft_printf.h
-
 all: $(NAME)
 
 $(NAME):
-	gcc -c -g $(SRC) $(HEADER)
-	ar rc $(NAME) $(OBJ)
+	$(CC) $(FLAGS) $(SRC) -I $(HEADER)
+	$(AR) $(NAME) $(OBJ)
 	ranlib $(NAME)
 
 clean:
